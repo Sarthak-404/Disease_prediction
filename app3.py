@@ -22,6 +22,16 @@ heart_disease_model = pickle.load(open('heart_disease_model1.sav','rb'))
 
 parkinsons_model = pickle.load(open('parkinsons_model.sav', 'rb'))
 
+custom_css = """
+<style>
+    [data-testid=stSidebar] {
+        background-color: #f94449;
+    }
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
+
 def predict_disease(temp_f, pulse_rate_bpm, vomiting, yellowish_urine, indigestion):
     # Prepare user input as a single-row DataFrame
     user_input = pd.DataFrame({
@@ -88,9 +98,10 @@ def interpret_bmi(bmi):
 
 # sidebar for navigation
 def main():
+    
     with st.sidebar:
-        image = Image.open('images/navbar.png')
-        st.image(image,width =200) 
+        image = Image.open('images/logo.jpg')
+        st.image(image,width =300) 
         selected = option_menu('Disease Diagnosis and Recommendation System',
                               
                               ['GENERAL','Diabetes Prediction',
@@ -416,7 +427,6 @@ st.write("\n")
 st.markdown("<p style = 'color:grey;'>This is a prediction web app for informational purposes only.\n It is not a substitute for professional medical advice.\nPlease consult a doctor or visit a hospital for proper diagnosis and treatment.</p>",unsafe_allow_html=True)
 st.write("\n")
 st.write("\n")
-st.markdown('<p style="font-size:12px; color:#808080;">©2023 Internship Project by LISA BOJAMMA MS for DLithe</p>', unsafe_allow_html=True)
 
 
 
