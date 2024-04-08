@@ -6,6 +6,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 from PIL import Image
+img = Image.open('logo1.png')
+st.set_page_config(page_title='CareLink',page_icon=img)
 
 dataset = pd.read_csv("general.csv")
 X = dataset.drop('Disease', axis=1)
